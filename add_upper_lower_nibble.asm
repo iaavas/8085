@@ -1,0 +1,20 @@
+LXI H,C301H ;TABLE 1
+LXI D,C401H ;TO BE STORED 
+LDA C300H ; LENGTH OF TABLE 1 IS IN C300H
+MOV B,A 
+LOOP: MOV A,M 
+    ANI 0FH
+    MOV C,A 
+    MOV A,M 
+    ANI F0H
+    RAR
+    RAR
+    RAR
+    RAR
+    ADD C 
+    STAX D 
+    DCR B
+    INX H 
+    INX D 
+    JNZ LOOP 
+HLT

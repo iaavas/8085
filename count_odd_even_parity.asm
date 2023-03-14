@@ -1,0 +1,19 @@
+LXI H,C050H
+MVI C,96H
+MVI B,00H 
+MOV D,C 
+
+LOOP: MOV A,m
+    ADI 00H 
+    JPE LABEL
+    INR B
+    LABEL:INX H 
+    DCR C 
+    JNZ LOOP
+    MOV A,D 
+    SUB B 
+    STA D000H 
+    MOV A,B 
+    STA D001H
+
+HLT 
